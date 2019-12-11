@@ -1,7 +1,5 @@
 package com.jrpg.game;
 
-import org.omg.CORBA.OBJECT_NOT_EXIST;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -18,7 +16,6 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 public class JRPGEngine extends ApplicationAdapter implements InputProcessor {
 	TiledMap tiledMap;
 	SpriteBatch batch;
-	Texture img;
 	OrthographicCamera camera;
 	TiledMapRenderer tiledMapRenderer;
 	
@@ -45,14 +42,14 @@ public class JRPGEngine extends ApplicationAdapter implements InputProcessor {
 		tiledMapRenderer.setView(camera);
 		tiledMapRenderer.render();
 		batch.begin();
-		//batch.draw(img, 0, 0);
+		
 		batch.end();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		tiledMap.dispose();
 	}
 
 	@Override
